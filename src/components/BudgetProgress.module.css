@@ -1,0 +1,141 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.figures {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-1);
+}
+
+.figure {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.figureLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+}
+
+.figureValue {
+  font-family: var(--font-family-monospace);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  font-size: 1.02rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.remaining {
+  color: var(--primary);
+}
+
+.exhausted {
+  color: var(--error);
+}
+
+.barRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.track {
+  position: relative;
+  flex: 1;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--budget-track);
+  overflow: hidden;
+}
+
+.used,
+.reserved {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  transition: width var(--animation-duration-slow) ease, left var(--animation-duration-slow) ease;
+}
+
+.used {
+  left: 0;
+  background: var(--budget-paid);
+  border-radius: var(--radius-full) 0 0 var(--radius-full);
+}
+
+.reserved {
+  background: repeating-linear-gradient(135deg, var(--budget-reserved) 0 6px, color-mix(in srgb, var(--budget-reserved) 70%, transparent) 6px 10px);
+}
+
+.pct {
+  font-family: var(--font-family-monospace);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.85rem;
+  font-weight: 500;
+  min-width: 44px;
+  text-align: right;
+}
+
+.compactMeta {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.compactMeta strong {
+  color: var(--foreground);
+  font-family: var(--font-family-monospace);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.swatch {
+  width: 12px;
+  height: 8px;
+  border-radius: 2px;
+  display: inline-block;
+}
+
+.swatchUsed {
+  background: var(--budget-paid);
+}
+
+.swatchReserved {
+  background: var(--budget-reserved);
+}
+
+.exhaustedNote {
+  color: var(--error);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .figures {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

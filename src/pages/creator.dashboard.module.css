@@ -1,0 +1,67 @@
+.skeletonCard {
+  height: 96px;
+  border-radius: var(--radius);
+}
+
+.muted {
+  margin: 0;
+  color: var(--muted-foreground);
+  font-size: 0.86rem;
+}
+
+.claimList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.claimItem {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.86rem;
+}
+
+.claimItem:last-child {
+  border-bottom: none;
+}
+
+.claimTitle {
+  color: var(--foreground);
+  text-decoration: none;
+  font-weight: 500;
+  display: block;
+}
+
+.claimTitle:hover {
+  color: var(--primary);
+}
+
+.claimMeta {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}
+
+.claimRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+.amount {
+  font-family: var(--font-family-monospace);
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-4);
+}

@@ -1,0 +1,14 @@
+.skeleton {
+  height: 500px;
+  border-radius: var(--radius);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--muted-foreground);
+  text-decoration: none;
+  font-size: 0.84rem;
+  margin-bottom: var(--spacing-4);
+}

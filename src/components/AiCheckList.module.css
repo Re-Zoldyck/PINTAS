@@ -1,0 +1,89 @@
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card);
+}
+
+.item {
+  display: flex;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.icon {
+  display: inline-flex;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-2);
+  align-items: baseline;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.status {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 600;
+}
+
+.detail {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--muted-foreground);
+  line-height: 1.45;
+}
+
+.pass .icon,
+.pass .status {
+  color: var(--success);
+}
+
+.fail .icon,
+.fail .status {
+  color: var(--error);
+}
+
+.fail {
+  background: color-mix(in srgb, var(--error) 5%, var(--card));
+}
+
+.review .icon,
+.review .status {
+  color: var(--warning);
+}
+
+.review {
+  background: color-mix(in srgb, var(--warning) 6%, var(--card));
+}
+
+.skip .icon,
+.skip .status {
+  color: var(--muted-foreground);
+}

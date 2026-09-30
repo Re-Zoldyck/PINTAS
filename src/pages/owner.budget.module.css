@@ -1,0 +1,26 @@
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.sub {
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}
+
+.remaining {
+  color: var(--primary);
+}
+
+.exhausted {
+  color: var(--error);
+}
+
+.miniBar {
+  min-width: 180px;
+}

@@ -1,0 +1,50 @@
+.skeleton {
+  height: 400px;
+  border-radius: var(--radius);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--spacing-4);
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.help {
+  margin: var(--spacing-2) 0 0;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
+
+.accounts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.accountRow {
+  display: grid;
+  grid-template-columns: 180px 1fr auto;
+  gap: var(--spacing-2);
+  align-items: center;
+}
+
+.platformSelect {
+  width: 100%;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media (max-width: 560px) {
+  .accountRow {
+    grid-template-columns: 1fr;
+  }
+}

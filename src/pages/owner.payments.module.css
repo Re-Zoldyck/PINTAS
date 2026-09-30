@@ -1,0 +1,14 @@
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.sub {
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}

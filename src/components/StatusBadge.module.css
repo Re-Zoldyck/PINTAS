@@ -1,0 +1,62 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-full);
+  padding: 3px 10px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.3;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  letter-spacing: 0.01em;
+}
+
+.sm {
+  padding: 2px 8px;
+  font-size: 0.72rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.9;
+}
+
+.neutral {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border-color: color-mix(in srgb, var(--muted-foreground) 15%, transparent);
+}
+
+.info {
+  background: color-mix(in srgb, var(--info) 12%, var(--card));
+  color: var(--info);
+  border-color: color-mix(in srgb, var(--info) 22%, transparent);
+}
+
+.warning {
+  background: color-mix(in srgb, var(--warning) 14%, var(--card));
+  color: var(--warning);
+  border-color: color-mix(in srgb, var(--warning) 25%, transparent);
+}
+
+.success {
+  background: color-mix(in srgb, var(--success) 13%, var(--card));
+  color: var(--success);
+  border-color: color-mix(in srgb, var(--success) 25%, transparent);
+}
+
+.error {
+  background: color-mix(in srgb, var(--error) 12%, var(--card));
+  color: var(--error);
+  border-color: color-mix(in srgb, var(--error) 22%, transparent);
+}
+
+.primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}

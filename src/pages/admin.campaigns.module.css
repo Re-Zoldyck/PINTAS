@@ -1,0 +1,18 @@
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.name {
+  font-weight: 500;
+}
+
+.sub {
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}
+
+.miniBar {
+  min-width: 180px;
+}

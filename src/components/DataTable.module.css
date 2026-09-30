@@ -1,0 +1,78 @@
+.wrap {
+  width: 100%;
+  overflow-x: auto;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.th {
+  text-align: left;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+  font-weight: 500;
+  padding: 10px var(--spacing-4);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface) 60%, var(--card));
+  white-space: nowrap;
+}
+
+.td {
+  padding: 12px var(--spacing-4);
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.dense .td {
+  padding: 8px var(--spacing-3);
+}
+
+.tr:last-child .td {
+  border-bottom: none;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  background: color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+.right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.center {
+  text-align: center;
+}
+
+.emptyCell {
+  padding: var(--spacing-8) var(--spacing-4);
+  text-align: center;
+}
+
+.emptyText {
+  color: var(--muted-foreground);
+  font-size: 0.88rem;
+}
+
+.skeleton {
+  height: 14px;
+  width: 70%;
+}
+
+@media (max-width: 720px) {
+  .hideMobile {
+    display: none;
+  }
+}

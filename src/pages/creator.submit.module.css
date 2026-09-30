@@ -1,0 +1,123 @@
+.skeleton {
+  height: 400px;
+  border-radius: var(--radius);
+}
+
+.skeletonRow {
+  height: 40px;
+  border-radius: var(--radius);
+}
+
+.campaignHint {
+  margin: var(--spacing-2) 0 0;
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: var(--spacing-4);
+  min-width: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.help {
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+}
+
+.helpWarn {
+  font-size: 0.78rem;
+  color: var(--warning);
+}
+
+.estimate {
+  font-family: var(--font-family-monospace);
+  font-size: 1.15rem;
+  font-weight: 500;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+}
+
+.checkRow {
+  display: flex;
+  gap: var(--spacing-3);
+  align-items: flex-start;
+  font-size: 0.88rem;
+  margin-bottom: var(--spacing-4);
+  cursor: pointer;
+}
+
+.checkRow span {
+  display: inline-flex;
+  gap: var(--spacing-2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.wmLogo {
+  height: 24px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-2);
+  flex-wrap: wrap;
+}
+
+.checkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.checkItem {
+  display: flex;
+  gap: var(--spacing-2);
+  align-items: flex-start;
+  font-size: 0.86rem;
+}
+
+.checkItem svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.ok {
+  color: var(--success);
+}
+
+.warn {
+  color: var(--warning);
+}
+
+.todo {
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

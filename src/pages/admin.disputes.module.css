@@ -1,0 +1,23 @@
+.cell {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.sub {
+  font-size: 0.76rem;
+  color: var(--muted-foreground);
+}
+
+.reason {
+  font-size: 0.84rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 420px;
+}

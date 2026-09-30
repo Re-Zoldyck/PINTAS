@@ -1,0 +1,35 @@
+.skeletonHead {
+  height: 80px;
+  border-radius: var(--radius);
+}
+
+.skeletonBody {
+  height: 400px;
+  border-radius: var(--radius);
+}
+
+.back {
+  color: var(--muted-foreground);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--primary);
+}
+
+.dialogField {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: var(--spacing-4) 0;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.help {
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}

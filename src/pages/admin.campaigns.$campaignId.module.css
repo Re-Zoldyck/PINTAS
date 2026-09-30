@@ -1,0 +1,18 @@
+.skeletonHead {
+  height: 80px;
+  border-radius: var(--radius);
+}
+
+.skeletonBody {
+  height: 400px;
+  border-radius: var(--radius);
+}
+
+.back {
+  color: var(--muted-foreground);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--primary);
+}

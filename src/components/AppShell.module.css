@@ -1,0 +1,241 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-family-base);
+}
+
+.sidebar {
+  width: 248px;
+  flex-shrink: 0;
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6) var(--spacing-4) var(--spacing-4);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.brand,
+.sheetBrand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  text-decoration: none;
+  color: inherit;
+  padding: 0 var(--spacing-2);
+}
+
+.brandMark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.brandName {
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 0.08em;
+}
+
+.roleTag {
+  margin: var(--spacing-3) var(--spacing-2) var(--spacing-6);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: 10px var(--spacing-3);
+  border-radius: var(--radius-sm);
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
+  opacity: 0.78;
+  transition: background var(--animation-duration-fast), opacity var(--animation-duration-fast);
+}
+
+.navItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  opacity: 1;
+}
+
+.navItemActive {
+  background: rgba(61, 191, 144, 0.16);
+  color: #bfeedb;
+  opacity: 1;
+  font-weight: 500;
+}
+
+.navIcon {
+  display: inline-flex;
+  opacity: 0.9;
+}
+
+.navChevron {
+  margin-left: auto;
+  opacity: 0;
+  transition: opacity var(--animation-duration-fast);
+}
+
+.navItemActive .navChevron {
+  opacity: 0.7;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding-top: var(--spacing-6);
+}
+
+.userBlock {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+}
+
+.avatarFallback {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.userMeta {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.userName {
+  font-size: 0.85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 0.72rem;
+  opacity: 0.6;
+}
+
+.logoutButton {
+  margin-left: auto;
+  color: inherit;
+  opacity: 0.7;
+}
+
+.logoutButton:hover {
+  opacity: 1;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--spacing-6);
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--background) 92%, var(--card));
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav-sticky);
+}
+
+.topbarLeft,
+.topbarRight {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+}
+
+.topbarBrand {
+  display: none;
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--foreground);
+  text-decoration: none;
+}
+
+.topbarUser {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.menuButton {
+  display: none;
+}
+
+.sheet {
+  background: var(--sidebar);
+  color: var(--sidebar-foreground);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-6) var(--spacing-4) var(--spacing-4);
+  width: 280px;
+}
+
+.content {
+  padding: var(--spacing-6);
+  max-width: 1320px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  }
+  .menuButton {
+    display: inline-flex;
+  }
+  .topbarBrand {
+    display: inline;
+  }
+  .topbarUser {
+    display: none;
+  }
+  .content {
+    padding: var(--spacing-4);
+  }
+}

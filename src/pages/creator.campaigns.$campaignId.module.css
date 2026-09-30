@@ -1,0 +1,77 @@
+.skeletonHead {
+  height: 80px;
+  border-radius: var(--radius);
+}
+
+.skeletonBody {
+  height: 320px;
+  border-radius: var(--radius);
+}
+
+.back {
+  color: var(--muted-foreground);
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--primary);
+}
+
+.metaRow {
+  display: inline-flex;
+  gap: var(--spacing-3);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.metaRow span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.description {
+  margin: 0 0 var(--spacing-4);
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-size: 0.92rem;
+}
+
+.wm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  align-items: flex-start;
+}
+
+.wmLogo {
+  height: 44px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.download {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--primary);
+  font-size: 0.84rem;
+}
+
+.rule {
+  margin: 0 0 var(--spacing-2);
+  font-weight: 500;
+  background: var(--accent);
+  color: var(--accent-foreground);
+  padding: var(--spacing-2) var(--spacing-3);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+}
+
+.ruleNote {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--muted-foreground);
+}
