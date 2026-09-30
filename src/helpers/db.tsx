@@ -1,7 +1,6 @@
-import { type GeneratedAlways, Kysely, CamelCasePlugin } from "kysely";
-import { PostgresJSDialect } from "kysely-postgres-js";
+import { Kysely, CamelCasePlugin, PostgresDialect } from "kysely";
+import pg from "pg";
 import { DB, kyselyIdentifierOverrides } from "./schema";
-import postgres from "postgres";
 
 // kysely's CamelCasePlugin can't recover a snake_case name that has an underscore
 // directly before a digit. The generated schema exports the exact spelling for such
@@ -17,14 +16,17 @@ if (!connectionString) {
   throw new Error("DATABASE_URL belum diset (lihat .env.example)");
 }
 
+// bigint (int8) dikembalikan sebagai string — sama seperti di Floot; kode memakai num() untuk konversi.
+const isLocal = /localhost|127\.0\.0\.1/.test(connectionString);
+
 export const db = new Kysely<DB>({
   plugins: [new PintasCamelCasePlugin()],
-  dialect: new PostgresJSDialect({
-    postgres: postgres(connectionString, {
-      prepare: false,
-      idle_timeout: 10,
+  dialect: new PostgresDialect({
+    pool: new pg.Pool({
+      connectionString,
       max: 3,
-      ssl: connectionString.includes("localhost") ? undefined : "require",
+      idleTimeoutMillis: 10_000,
+      ssl: isLocal ? undefined : { rejectUnauthorized: false },
     }),
   }),
 });
