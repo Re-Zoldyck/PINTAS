@@ -6,7 +6,7 @@
   "scripts": {
     "gen:routes": "node scripts/generate-routes.mjs",
     "dev": "npm run gen:routes && vite",
-    "build": "npm run gen:routes && tsc --noEmit -p tsconfig.json && vite build",
+    "build": "npm run gen:routes && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.json"
