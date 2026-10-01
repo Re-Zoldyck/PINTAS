@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { routes } from "../src/server/handler";
+import routes from "../src/server/handler";
 
 /**
  * Single Vercel Serverless Function that serves every PINTAS endpoint.
@@ -34,11 +34,12 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
     body = Buffer.concat(chunks);
   }
- const request = new Request(url.toString(), { 
-  method, 
-  headers, 
-  body: body && body.length ? body : null 
-});
+  
+  const request = new Request(url.toString(), { 
+    method, 
+    headers, 
+    body: body && body.length ? new Uint8Array(body) : undefined 
+  });
 
   let response: Response;
   try {
