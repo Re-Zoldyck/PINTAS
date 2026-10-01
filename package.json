@@ -4,9 +4,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "gen:routes": "node scripts/generate-routes.mjs",
-    "dev": "npm run gen:routes && vite",
-    "build": "npm run gen:routes && vite build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "typecheck": "tsc --noEmit -p tsconfig.json"
