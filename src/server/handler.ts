@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { routes } from "../src/server/handler.ts";
+import routes from "../src/server/handler";
 
 /**
  * Single Vercel Serverless Function that serves every PINTAS endpoint.
@@ -15,7 +15,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   url.searchParams.delete("route");
   url.pathname = `/_api/${route}`;
   const method = (req.method ?? "GET").toUpperCase();
-  const handle = routes[`${route}:${method}`];
+  const handle = (routes as Record<string, any>)[`${route}:${method}`];
   if (!handle) {
     res.statusCode = 404;
     res.setHeader("content-type", "application/json");
@@ -35,10 +35,10 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     body = Buffer.concat(chunks);
   }
   const request = new Request(url.toString(), { 
-  method, 
-  headers, 
-  body: body && body.length ? new Uint8Array(body) : undefined
-});
+    method, 
+    headers, 
+    body: body && body.length ? new Uint8Array(body) : undefined
+  });
 
   let response: Response;
   try {
