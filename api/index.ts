@@ -9,12 +9,13 @@ import routes from "../src/server/handler";
 export default async function handler(req: IncomingMessage, res: ServerResponse) {
   const host = String(req.headers.host ?? "localhost");
   const url = new URL(req.url ?? "/", `https://${host}`);
-  // Route comes from the rewrite query (?route=...), or from the path when called directly.
+  
   const route = (url.searchParams.get("route") ?? url.pathname.replace(/^\/api\/?/, ""))
     .replace(/^\/+|\/+$/g, "");
   url.searchParams.delete("route");
   url.pathname = `/_api/${route}`;
   const method = (req.method ?? "GET").toUpperCase();
+  
   const handle = (routes as Record<string, any>)[`${route}:${method}`];
   if (!handle) {
     res.statusCode = 404;
@@ -28,17 +29,18 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     if (Array.isArray(v)) v.forEach((x) => headers.append(k, x));
     else if (v !== undefined) headers.set(k, String(v));
   }
+
   let body: Buffer | undefined;
   if (method !== "GET" && method !== "HEAD") {
     const chunks: Buffer[] = [];
     for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
     body = Buffer.concat(chunks);
   }
-  
+
   const request = new Request(url.toString(), { 
     method, 
     headers, 
-    body: body && body.length ? new Uint8Array(body) : undefined 
+    body: body && body.length ? new Uint8Array(body) : undefined
   });
 
   let response: Response;
@@ -57,12 +59,14 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     if (key.toLowerCase() === "set-cookie") return;
     res.setHeader(key, value);
   });
+  
   const cookies = (response.headers as any).getSetCookie?.() as string[] | undefined;
   if (cookies && cookies.length) res.setHeader("set-cookie", cookies);
   else {
     const single = response.headers.get("set-cookie");
     if (single) res.setHeader("set-cookie", single);
   }
+
   const out = Buffer.from(await response.arrayBuffer());
   res.end(out);
 }
