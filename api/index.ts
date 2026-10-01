@@ -1,5 +1,5 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { routes } from "../src/server/routes";
+import { routes } from "../src/server/handler.bundle.mjs";
 
 /**
  * Single Vercel Serverless Function that serves every PINTAS endpoint.
