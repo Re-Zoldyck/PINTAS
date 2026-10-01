@@ -37,7 +37,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const request = new Request(url.toString(), { 
   method, 
   headers, 
-  body: body && body.length ? body : null 
+  body: body && body.length ? new Uint8Array(body) : undefined
 });
 
   let response: Response;

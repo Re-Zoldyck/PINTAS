@@ -15,7 +15,7 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   url.searchParams.delete("route");
   url.pathname = `/_api/${route}`;
   const method = (req.method ?? "GET").toUpperCase();
-  const handle = routes[`${route}:${method}`];
+  const handle = (routes as Record<string, any>)[`${route}:${method}`];
   if (!handle) {
     res.statusCode = 404;
     res.setHeader("content-type", "application/json");
