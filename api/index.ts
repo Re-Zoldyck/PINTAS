@@ -34,7 +34,11 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     for await (const chunk of req) chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
     body = Buffer.concat(chunks);
   }
-  const request = new Request(url.toString(), { method, headers, body: body && body.length ? body : undefined });
+ const request = new Request(url.toString(), { 
+  method, 
+  headers, 
+  body: body && body.length ? body : null 
+});
 
   let response: Response;
   try {
