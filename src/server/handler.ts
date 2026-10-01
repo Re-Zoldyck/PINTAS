@@ -13,6 +13,10 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     .replace(/^\/+|\/+$/g, "");
   url.searchParams.delete("route");
   url.pathname = `/_api/${route}`;
+  export const routes: Record<string, Function> = {
+  // Masukkan rute kamu di sini, contoh:
+  // "api/login:POST": async (req) => { ... }
+};
   const method = (req.method ?? "GET").toUpperCase();
   const handle = (routes as Record<string, any>)[`${route}:${method}`];
   if (!handle) {
@@ -64,5 +68,8 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
   const out = Buffer.from(await response.arrayBuffer());
   res.end(out);
 }
-
+export const routes: Record<string, Function> = {
+  // Masukkan rute kamu di sini, contoh:
+  // "api/login:POST": async (req) => { ... }
+};
 export const config = { api: { bodyParser: false } };
